@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Link } from "react-router-dom";
+import ProductContextt from '../context/ProductContext.js' //import Context
 
-const Navbar = ({ setproducts }) => {
+const Navbar = () => {
   const [servalue, setservalue] = useState("");
+  const {setproducts} = useContext(ProductContextt) // import Setproducts from context
 
   const SerchProduct = async () => {
     const res = await fetch(

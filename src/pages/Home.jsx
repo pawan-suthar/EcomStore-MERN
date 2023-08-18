@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import HashLoader from "react-spinners/HashLoader";
+import ProductContextt from "../context/ProductContext"; //import context
 
-const Home = ({ products, setproducts }) => {
+const Home = () => {
   const [loading, setloading] = useState(true);
+
+  const {products,setproducts} = useContext(ProductContextt) //destructure from ProductConext
 
   useEffect(() => {
     getProduct();
