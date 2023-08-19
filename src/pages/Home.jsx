@@ -5,7 +5,7 @@ import ProductContextt from "../context/ProductContext"; //import context
 const Home = () => {
   const [loading, setloading] = useState(true);
 
-  const {products,setproducts} = useContext(ProductContextt) //destructure from ProductConext
+  const { products, setproducts, cart, setcart, buy } = useContext(ProductContextt); //destructure from ProductConext
 
   useEffect(() => {
     getProduct();
@@ -44,7 +44,7 @@ const Home = () => {
                   <span className="font-medium text-gray-700">
                     price: ${product.price}
                   </span>
-                  <button className=" text-black font-semibold hover:scale-105  rounded-md">
+                  <button onClick={()=>buy(product)} className=" text-black font-semibold hover:scale-105  rounded-md">
                     Buy
                   </button>
                 </div>

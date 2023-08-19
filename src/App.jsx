@@ -7,10 +7,24 @@ import ProductContextt from "./context/ProductContext"; //import productconext
 
 function App() {
   const [products, setproducts] = useState([]);
+  const [cart,setcart] = useState([])
+
+
+  //add to cart  
+  const buy = (product) => {
+    setcart([...cart, product]);
+    // console.log(cart);
+  }
+
+  const remove = (product) => {
+    const newcart = cart.filter((item)=> item.id !== product.id)
+    setcart(newcart)
+  }
+  
   return (
     <>
     {/* wrap conext */}
-    <ProductContextt.Provider value={{products, setproducts}}> 
+    <ProductContextt.Provider value={{products, setproducts,cart,buy,remove}}> 
   
       <BrowserRouter>
         <Navbar  />

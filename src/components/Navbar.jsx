@@ -4,7 +4,7 @@ import ProductContextt from '../context/ProductContext.js' //import Context
 
 const Navbar = () => {
   const [servalue, setservalue] = useState("");
-  const {setproducts} = useContext(ProductContextt) // import Setproducts from context
+  const {setproducts,cart} = useContext(ProductContextt) // import Setproducts from context
 
   const SerchProduct = async () => {
     const res = await fetch(
@@ -39,7 +39,8 @@ const Navbar = () => {
           Home
         </Link>
         <Link to="/cart" className="text-black hover:scale-105 transition-all">
-          Cart
+          Cart {
+            !cart.length?"":` ${cart.length}`}
         </Link>
       </ul>
     </nav>
